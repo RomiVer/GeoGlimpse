@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.text.Html" />
+        <variable
+            name="viewmodel"
+            type="com.example.geoglimpse.ui.viewmodel.DetailCountryViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:titleTextColor="?attr/colorSecondary" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/side_margin"
+            app:cardBackgroundColor="?attr/colorOnPrimary"
+            app:cardCornerRadius="@dimen/corner_radius_12"
+            app:cardElevation="@dimen/elevation_detail_card"
+            app:cardMaxElevation="@dimen/elevation_detail_card"
+            app:cardPreventCornerOverlap="true"
+            app:cardUseCompatPadding="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_24"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/flag_detail"
+                    android:layout_width="@dimen/detail_flag_width"
+                    android:layout_height="@dimen/detail_flag_height"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/margin_24"
+                    android:contentDescription="@string/country_flag_image_desc"
+                    android:scaleType="fitCenter"
+                    android:transitionName="flag"
+                    app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+                <TextView
+                    android:textColor="?attr/colorSecondary"
+                    android:id="@+id/official_name_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginBottom="@dimen/margin_24"
+                    android:text="@{viewmodel.country.name.official}"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:textColor="?attr/colorSecondary"
+                    android:id="@+id/capital_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_bottom"
+                    android:text="@{Html.fromHtml(String.format(@string/capital(viewmodel.capitalString)))}" />
+
+                <TextView
+                    android:textColor="?attr/colorSecondary"
+                    android:id="@+id/population_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_bottom"
+                    android:text="@{Html.fromHtml(String.format(@string/population(viewmodel.populationString)))}" />
+
+                <TextView
+                    android:textColor="?attr/colorSecondary"
+                    android:id="@+id/currencies_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_bottom"
+                    android:text="@{Html.fromHtml(String.format(@string/currencies(viewmodel.currenciesString)))}" />
+
+                <TextView
+                    android:textColor="?attr/colorSecondary"
+                    android:id="@+id/region_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_bottom"
+                    android:text="@{Html.fromHtml(String.format(@string/region(viewmodel.regionString)))}" />
+
+                <TextView
+                    android:textColor="?attr/colorSecondary"
+                    android:id="@+id/subregion_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_bottom"
+                    android:text="@{Html.fromHtml(String.format(@string/subregion(viewmodel.subregionString)))}" />
+
+                <TextView
+                    android:textColor="?attr/colorSecondary"
+                    android:id="@+id/languages_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="@{Html.fromHtml(String.format(@string/languages(viewmodel.languagesString)))}" />
+
+                <TextView
+                    android:textColor="?attr/colorSecondary"
+                    android:id="@+id/borders_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_bottom"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="@{Html.fromHtml(String.format(@string/borders(viewmodel.bordersString)))}" />
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+</layout>

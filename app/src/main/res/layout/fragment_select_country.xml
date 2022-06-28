@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.view.SelectCountryFragment">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:titleTextColor="?attr/colorSecondary" />
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chipGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/side_margin"
+        android:visibility="gone"
+        app:chipSpacingHorizontal="@dimen/spacing_chip"
+        app:layout_constraintBottom_toTopOf="@id/countryList"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:selectionRequired="true"
+        app:singleSelection="true">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipName"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="@string/chip_name" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipRegion"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/chip_region" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipLanguage"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/chip_language" />
+
+    </com.google.android.material.chip.ChipGroup>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="@dimen/side_margin"
+        android:layout_marginTop="@dimen/margin_4"
+        android:layout_marginEnd="@dimen/side_margin"
+        android:layout_marginBottom="@dimen/side_margin">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/countryList"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="@dimen/margin_24"
+            app:layout_constraintBottom_toTopOf="@id/flag"
+            app:layout_constraintEnd_toEndOf="@id/container"
+            app:layout_constraintTop_toTopOf="@id/container" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/margin_36"
+            android:indeterminateTint="?attr/colorPrimary"
+            android:indeterminateTintMode="src_in"
+            app:layout_constraintBottom_toBottomOf="@id/countryList"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/countryList"
+            tools:visibility="visible" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/map_container"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/map_height"
+            app:cardCornerRadius="@dimen/corner_radius_12"
+            app:cardElevation="0dp"
+            app:cardMaxElevation="0dp"
+            app:cardPreventCornerOverlap="true"
+            app:cardUseCompatPadding="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/countryList"
+            app:layout_constraintVertical_bias="1.0">
+
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/map_fragment"
+                android:name="com.google.android.gms.maps.SupportMapFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </androidx.cardview.widget.CardView>
+
+        <ImageView
+            android:id="@+id/flag"
+            android:contentDescription="@string/country_flag_image_desc"
+            android:layout_width="@dimen/select_flag_width"
+            android:layout_height="@dimen/select_flag_height"
+            android:scaleType="fitCenter"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@+id/map_container"
+            app:layout_constraintEnd_toEndOf="@+id/map_container"
+            app:layout_constraintStart_toStartOf="@+id/map_container"
+            app:layout_constraintTop_toTopOf="@+id/map_container" />
+
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/learn_more_fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_24"
+            android:layout_marginBottom="@dimen/margin_24"
+            android:text="@string/learn_more"
+            android:visibility="invisible"
+            app:icon="@drawable/ic_arrow_forward_24"
+            app:iconGravity="end"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>

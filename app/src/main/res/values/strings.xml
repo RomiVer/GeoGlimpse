@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Geo Glimpse</string>
+    <string name="capital"><![CDATA[Capital\t\t\t\t\t <b>%1$s</b>]]></string>
+    <string name="population"><![CDATA[Population\t\t <b>%1$s</b>]]></string>
+    <string name="currencies"><![CDATA[Currencies\t\t <b>%1$s</b>]]></string>
+    <string name="region"><![CDATA[Region\t\t\t\t\t <b>%1$s</b>]]></string>
+    <string name="subregion"><![CDATA[Subregion\t\t\t <b>%1$s</b>]]></string>
+    <string name="languages"><![CDATA[Languages\t\t <b>%1$s</b>]]></string>
+    <string name="borders"><![CDATA[Borders\t\t\t\t <b>%1$s</b>]]></string>
+    <string name="transition_name">flag transition</string>
+    <string name="chip_name">Name</string>
+    <string name="chip_region">Region</string>
+    <string name="chip_language">Language</string>
+    <string name="learn_more">Learn More</string>
+    <string name="country_flag_image_desc">Country Flag image</string>
+    <string name="search">Search</string>
+    <string name="recently_viewed">Recently viewed</string>
+</resources>

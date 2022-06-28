@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/selectCountryFragment">
+
+    <fragment
+        android:id="@+id/selectCountryFragment"
+        android:name="com.example.geoglimpse.ui.view.SelectCountryFragment"
+        android:label="Geo Glimpse"
+        tools:layout="@layout/fragment_select_country" >
+        <action
+            android:id="@+id/action_selectCountryFragment_to_detailCountryFragment"
+            app:destination="@id/detailCountryFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/detailCountryFragment"
+        android:name="com.example.geoglimpse.ui.view.DetailCountryFragment"
+        tools:layout="@layout/fragment_detail_country">
+        <argument
+            android:name="country"
+            app:argType="com.example.geoglimpse.data.CountryResponse"/>
+    </fragment>
+</navigation>

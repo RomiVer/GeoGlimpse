@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="gray_purple">#625B71</color>
+    <color name="light_purple">#E8DEF8</color>
+    <color name="purple">#6750A4</color>
+    <color name="black_purple">#1D192B</color>
+    <color name="pink_purple">#7D5260</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="white_background">#F8F8F8</color>
+    <color name="gray">#808080</color>
+
+    <color name="night_gray_purple">#CCC2DC</color>
+    <color name="night_ligth_purple">#4F378B</color>
+    <color name="night_withe_purple">#D0BCFF</color>
+    <color name="night_dark_gray">#4A4458</color>
+    <color name="night_dark_gray_purple">#49454F</color>
+</resources>
